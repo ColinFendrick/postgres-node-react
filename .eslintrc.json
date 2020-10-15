@@ -17,6 +17,7 @@
       "error",
       "tab"
     ],
+    "no-trailing-spaces": "error",
     "no-console": "off",
     "object-curly-spacing": [
       "error",

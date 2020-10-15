@@ -10,51 +10,47 @@ import './App.css';
 import AddTutorial from './components/AddTutorial';
 import Tutorial from './components/Tutorial';
 import TutorialsList from './components/TutorialsList';
+import AddUser from './components/AddUser';
+import UserList from './components/UserList';
 
 function App() {
 	return (
 		<div>
-			<nav className = "navbar navbar-expand navbar-dark bg-dark">
-				<a href = "/tutorials" className = "navbar-brand">
+			<nav className = 'navbar navbar-expand navbar-dark bg-dark'>
+				<a href = '/tutorials' className = 'navbar-brand'>
       Postgres Tutorial </a>
-				<div className = "navbar-nav mr-auto">
-					<li className = "nav-item" >
-						<Link to = {
-							'/tutorials'
-						}
-						className = "nav-link">
-      Tutorials </Link>
+				<div className = 'navbar-nav mr-auto'>
+					<li className = 'nav-item'>
+						<Link to = {'/tutorials'} className = 'nav-link'>
+						Tutorials
+						</Link>
 					</li>
-					<li className = "nav-item">
-						<Link to = {
-							'/add'
-						}
-						className = "nav-link">
-        Add </Link> 
+					<li className = 'nav-item'>
+						<Link to = {'/add'} className = 'nav-link'>
+							Add
+						</Link>
+					</li>
+					<li className = 'nav-item'>
+						<Link to ={'/adduser'} className = 'nav-link'>
+							Add a User
+						</Link>
+					</li>
+					<li className = 'nav-item'>
+						<Link to ={'/users'} className = 'nav-link'>
+							All Users
+						</Link>
 					</li>
 				</div>
 			</nav>
 
-			<div className = "container mt-3" >
-				<Switch >
-					<Route exact path = {
-						['/', '/tutorials']
-					}
-					component = {
-						TutorialsList
-					}
-					/>
-					<Route exact path = "/add"
-						component = {
-							AddTutorial
-						}
-					/>
-					<Route path = "/tutorials/:id"
-						component = {
-							Tutorial
-						}
-					/> 
-				</Switch> 
+			<div className = 'container mt-3' >
+				<Switch>
+					<Route exact path={['/', '/tutorials']} component={TutorialsList} />
+					<Route exact path='/add' component={AddTutorial} />
+					<Route path='/tutorials/:id' component={Tutorial} />
+					<Route exact path='/adduser' component={AddUser} />
+					<Route path='/users' component={UserList} />
+				</Switch>
 			</div>
 		</div>
 	);
