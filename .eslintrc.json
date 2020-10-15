@@ -7,9 +7,9 @@
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
       "jsx": true
     },
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "rules": {
@@ -39,6 +39,7 @@
       "error",
       "always"
     ],
+    "eol-last": ["error", "always"],
     "space-infix-ops": [
       "error",
       {
