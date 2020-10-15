@@ -12,13 +12,9 @@ const create = data => http.post('/users', data);
 //   return http.put(`/users/${id}`, data);
 // };
 
-// const remove = id => {
-//   return http.delete(`/users/${id}`);
-// };
+const remove = id => http.delete(`/users/${id}`);
 
-// const removeAll = () => {
-//   return http.delete('/users');
-// };
+const removeAll = () => http.delete('/users');
 
 // const findByTitle = title => {
 //   return http.get(`/users?title=${title}`);
@@ -29,7 +25,7 @@ export default {
 	// get,
 	create,
 	// update,
-	// remove,
-	// removeAll,
+	remove,
+	removeAll,
 	// findByTitle
 };

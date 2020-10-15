@@ -43,9 +43,7 @@ const TutorialsList = () => {
 				console.log(response.data);
 				refreshList();
 			})
-			.catch(e => {
-				console.log(e);
-			});
+			.catch(e => console.log(e));
 	};
 
 	const findByTitle = () => {
@@ -124,7 +122,7 @@ const TutorialsList = () => {
 						</div>
 
 						<Link
-							to={'/tutorials/' + currentTutorial.id}
+							to={`/tutorials/${currentTutorial.id}`}
 							className='badge badge-warning'
 						>
               Edit
