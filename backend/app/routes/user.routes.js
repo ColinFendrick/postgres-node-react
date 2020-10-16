@@ -9,7 +9,7 @@ module.exports = app => {
 
 	router.get('/uninsured', users.findAllUninsured);
 
-	router.get('/insurance', users.findAllWithInsurance);
+	router.get('/insured', users.findAllWithInsurance);
 
 	router.get('/:id', users.findOne);
 

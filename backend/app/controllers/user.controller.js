@@ -83,6 +83,7 @@ exports.delete = async (req, res) => {
 
 exports.update = async (req, res) => {
 	const id = req.params.id;
+	console.log(req.body);
 
 	try {
 		const num = await User.update(req.body, { where: { id }});

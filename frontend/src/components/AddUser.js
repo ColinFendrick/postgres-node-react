@@ -9,6 +9,7 @@ const AddUser = () => {
 		handleSubmit,
 		errors
 	} = useForm();
+
 	const onSubmit = async data => {
 		try {
 			const response = await UserDataService.create(data);
@@ -21,15 +22,17 @@ const AddUser = () => {
 	return (
 		<div className='submit-form'>
 			<form onSubmit={handleSubmit(onSubmit)}>
+				<label htmlFor='name'>Name:</label>
 				<input
 					type='text'
 					className='form-control'
 					id='userName'
 					ref={register({ required: true })}
-					defaultValue={''}
+					defaultValue=''
 					name='name'
 				/>
 				{errors.name && 'Name is required'}
+				<label htmlFor='email'>Email:</label>
 				<input
 					type='text'
 					className='form-control'

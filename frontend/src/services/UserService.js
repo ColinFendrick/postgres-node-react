@@ -14,6 +14,8 @@ const removeAll = () => http.delete('/users');
 
 const getUninsured = () => http.get('/users/uninsured');
 
+const getInsured = () => http.get('/users/insured');
+
 export default {
 	getAll,
 	get,
@@ -21,5 +23,6 @@ export default {
 	update,
 	remove,
 	removeAll,
-	getUninsured
+	getUninsured,
+	getInsured
 };
