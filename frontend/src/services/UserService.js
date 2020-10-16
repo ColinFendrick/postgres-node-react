@@ -2,15 +2,11 @@ import http from '../http-common';
 
 const getAll = () => http.get('/users');
 
-// const get = id => {
-//   return http.get(`/users/${id}`);
-// };
+const get = id => http.get(`/users/${id}`);
 
 const create = data => http.post('/users', data);
 
-// const update = (id, data) => {
-//   return http.put(`/users/${id}`, data);
-// };
+const update = (id, data) => http.put(`/users/${id}`, data);
 
 const remove = id => http.delete(`/users/${id}`);
 
@@ -22,9 +18,9 @@ const removeAll = () => http.delete('/users');
 
 export default {
 	getAll,
-	// get,
+	get,
 	create,
-	// update,
+	update,
 	remove,
 	removeAll,
 	// findByTitle

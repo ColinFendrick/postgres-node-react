@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
 		},
 		hasInsurance: {
 			type: Sequelize.BOOLEAN
+		},
+		insurance: {
+			type: Sequelize.STRING
 		}
 	});
 

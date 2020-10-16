@@ -12,8 +12,9 @@ import Tutorial from './components/Tutorial';
 import TutorialsList from './components/TutorialsList';
 import AddUser from './components/AddUser';
 import UserList from './components/UserList';
+import User from './components/User';
 
-function App() {
+const App = () => {
 	return (
 		<div>
 			<nav className = 'navbar navbar-expand navbar-dark bg-dark'>
@@ -49,11 +50,12 @@ function App() {
 					<Route exact path='/add' component={AddTutorial} />
 					<Route path='/tutorials/:id' component={Tutorial} />
 					<Route exact path='/adduser' component={AddUser} />
-					<Route path='/users' component={UserList} />
+					<Route exact path='/users' component={UserList} />
+					<Route path='/users/:id' component={User} />
 				</Switch>
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;

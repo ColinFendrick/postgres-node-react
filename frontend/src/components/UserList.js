@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import UserDataService from '../services/UserService';
 
 const UserList = () => {
@@ -58,6 +59,38 @@ const UserList = () => {
 			>
         Remove All
 			</button>
+			{currentUser ? (
+				<div>
+					<h4>User</h4>
+					<div>
+						<label>
+							<strong>Name:</strong>
+						</label>{' '}
+						{currentUser.name}
+					</div>
+
+					<div>
+						<label>
+							<strong>Email:</strong>
+						</label>{' '}
+						{currentUser.email}
+					</div>
+
+					<div>
+						<label>
+							<strong>Has Insurance:</strong>
+						</label>{' '}
+						{currentUser.hasInsurance ? currentUser.insurance : 'No'}
+					</div>
+
+					<Link
+						to={`/users/${currentUser.id}`}
+						className='badge badge-warning'
+					>
+            Edit
+					</Link>
+				</div>
+			) : ''}
 		</div>
 	);
 };

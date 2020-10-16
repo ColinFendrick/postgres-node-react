@@ -62,8 +62,8 @@ exports.delete = async (req, res) => {
 	const id = req.params.id;
 
 	try {
-		const result = await User.destroy({ where: { id }});
-		if (result === 1) {
+		const num = await User.destroy({ where: { id }});
+		if (num === 1) {
 			res.status(200).send({ message: 'User destroyed' });
 		} else {
 			res.status(500).send({ message: `Failed to delete user with ${id}` });
@@ -71,6 +71,27 @@ exports.delete = async (req, res) => {
 	} catch (e) {
 		res.status(500).send({
 			message: `Could not delete User with id=${id}`
+		});
+	}
+};
+
+exports.update = async (req, res) => {
+	const id = req.params.id;
+
+	try {
+		const num = await User.update(req.body, { where: { id }});
+		if (num === 1) {
+			res.status(200).send({
+				message: `User ${id} updated successfully.`
+			});
+		} else {
+			res.status(500).send({
+				message: `Failed to update User at ${id}. User may not have been found.`
+			});
+		}
+	} catch (e) {
+		res.status(500).send({
+			message: e.message || `Some error occured while updating user ${id}.`
 		});
 	}
 };
