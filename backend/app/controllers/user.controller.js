@@ -35,8 +35,14 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
+	const where = req.query.name ? {
+		name: {
+			[Op.iLike]: `%${name}%`
+		}
+	} : null;
+
 	try {
-		const users = await User.findAll();
+		const users = await User.findAll({ where });
 		res.status(200).send(users);
 	} catch (e) {
 		res.status(500).send({
@@ -110,3 +116,19 @@ exports.deleteAll = async (req, res) => {
 		});
 	}
 };
+
+
+const findAllWithInsuranceStatus = hasInsurance => async (req, res) => {
+	try {
+		const allUsers = await User.findAll({ where: { hasInsurance }});
+		res.send(allUsers);
+	} catch (e) {
+		res.status(500).send({
+			message: e.message || 'Some error occurred while retrieving users without insurance.'
+		});
+	}
+};
+
+
+exports.findAllUninsured = findAllWithInsuranceStatus(false);
+exports.findAllWithInsurance = findAllWithInsuranceStatus(true);

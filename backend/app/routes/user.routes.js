@@ -7,7 +7,9 @@ module.exports = app => {
 
 	router.get('/', users.findAll);
 
-	// router.get('/published', users.findAllPublished);
+	router.get('/uninsured', users.findAllUninsured);
+
+	router.get('/insurance', users.findAllWithInsurance);
 
 	router.get('/:id', users.findOne);
 

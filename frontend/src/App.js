@@ -13,6 +13,7 @@ import TutorialsList from './components/TutorialsList';
 import AddUser from './components/AddUser';
 import UserList from './components/UserList';
 import User from './components/User';
+import Uninsured from './components/Uninsured';
 
 const App = () => {
 	return (
@@ -41,6 +42,11 @@ const App = () => {
 							All Users
 						</Link>
 					</li>
+					<li className = 'nav-item'>
+						<Link to ={'/users/uninsured'} className = 'nav-link'>
+							Uninsured
+						</Link>
+					</li>
 				</div>
 			</nav>
 
@@ -51,6 +57,7 @@ const App = () => {
 					<Route path='/tutorials/:id' component={Tutorial} />
 					<Route exact path='/adduser' component={AddUser} />
 					<Route exact path='/users' component={UserList} />
+					<Route exact path='/users/uninsured' component={Uninsured} />
 					<Route path='/users/:id' component={User} />
 				</Switch>
 			</div>

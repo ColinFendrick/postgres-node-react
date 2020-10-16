@@ -12,9 +12,7 @@ const remove = id => http.delete(`/users/${id}`);
 
 const removeAll = () => http.delete('/users');
 
-// const findByTitle = title => {
-//   return http.get(`/users?title=${title}`);
-// };
+const getUninsured = () => http.get('/users/uninsured');
 
 export default {
 	getAll,
@@ -23,5 +21,5 @@ export default {
 	update,
 	remove,
 	removeAll,
-	// findByTitle
+	getUninsured
 };
