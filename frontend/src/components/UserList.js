@@ -80,8 +80,15 @@ const UserList = () => {
 						<label>
 							<strong>Has Insurance:</strong>
 						</label>{' '}
-						{currentUser.hasInsurance ? currentUser.insurance : 'No'}
+						{currentUser.hasInsurance ? 'Yes' : 'No'}
 					</div>
+
+					{currentUser.insurance && <div>
+						<label>
+							<strong>Insurance:</strong>
+						</label>{' '}
+						{currentUser.insurance}
+					</div>}
 
 					<Link
 						to={`/users/${currentUser.id}`}
