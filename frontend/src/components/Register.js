@@ -16,7 +16,6 @@ const Register = () => {
 
 		try {
 			const res = await AuthService.register(data);
-			console.log(res);
 			setMessage(res.data.message);
 			setSuccessful(true);
 		} catch (e) {
@@ -66,7 +65,10 @@ const Register = () => {
 									className='form-control'
 									name='password'
 									id='password'
-									ref={register({ required: true, pattern: passwordRegex })}
+									ref={register({
+										required: true,
+										pattern: passwordRegex
+									})}
 								/>
 								{errors.password?.type === 'required' && 'Your input is required'}
 								{errors.password?.type === 'pattern' && 'Must be at least 8 characters, containing one special character'}
