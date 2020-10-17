@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {
 	Switch,
 	Route,
-	Link
+	Link,
+	useHistory
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -23,13 +24,19 @@ import AuthService from './services/AuthService';
 
 const App = () => {
 	const [currentUser, setCurrentUser] = useState(undefined);
+	const history = useHistory();
 	useEffect(() => {
 		const user = AuthService.getCurrentUser();
 
 		if (user) {
 			setCurrentUser(user);
+		} else {
+			if (history.location.pathname !== '/login') {
+				history.push('/login');
+				window.location.reload();
+			}
 		}
-	}, []);
+	}, [history]);
 
 	const logOut = () => {
 		AuthService.logout();
@@ -107,7 +114,8 @@ const App = () => {
 
 			<div className = 'container mt-3' >
 				<Switch>
-					<Route exact path={['/', '/tutorials']} component={TutorialsList} />
+					<Route exact path='/register' component={Register} />
+					<Route exact path='/tutorials' component={TutorialsList} />
 					<Route exact path='/add' component={AddTutorial} />
 					<Route path='/tutorials/:id' component={Tutorial} />
 					<Route exact path='/adduser' component={AddUser} />
@@ -116,8 +124,7 @@ const App = () => {
 					<Route exact path='/users/insured' component={Insured} />
 					<Route path='/users/:id' component={User} />
 					<Route path='/profile' component={Profile} />
-					<Route path='/login' component={Login} />
-					<Route exact path="/register" component={Register} />
+					<Route path={['/', '/login']} component={Login} />
 				</Switch>
 			</div>
 		</div>
