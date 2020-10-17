@@ -21,5 +21,9 @@ db.sequelize = sequelize;
 
 db.tutorials = require('./tutorial.model.js')(sequelize, Sequelize);
 db.users = require('./user.model.js')(sequelize, Sequelize);
+db.appusers = require('./appuser.model.js')(sequelize, Sequelize);
+
+db.appusers.hasOne(db.users);
+db.users.belongsTo(db.appusers);
 
 module.exports = db;
