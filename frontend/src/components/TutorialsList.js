@@ -19,7 +19,6 @@ const TutorialsList = () => {
 		TutorialDataService.getAll()
 			.then(response => {
 				setTutorials(response.data);
-				console.log(response.data);
 			})
 			.catch(e => {
 				console.log(e);
@@ -39,8 +38,7 @@ const TutorialsList = () => {
 
 	const removeAllTutorials = () => {
 		TutorialDataService.removeAll()
-			.then(response => {
-				console.log(response.data);
+			.then(() => {
 				refreshList();
 			})
 			.catch(e => console.log(e));

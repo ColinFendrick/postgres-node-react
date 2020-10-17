@@ -16,10 +16,11 @@ const Register = () => {
 
 		try {
 			const res = await AuthService.register(data);
+			console.log(res);
 			setMessage(res.data.message);
 			setSuccessful(true);
 		} catch (e) {
-			console.log(e);
+			setMessage(e.response.data.message || 'Something went wrong!');
 			setSuccessful(false);
 		}
 	};

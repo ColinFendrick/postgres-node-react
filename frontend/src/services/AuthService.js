@@ -1,11 +1,10 @@
 import http from '../http-common';
 
-const register = ({ username, email, password }) =>
-	http.post('/auth/signup', {
-		username,
-		email,
-		password,
-	});
+const register = ({ username, email, password }) => http.post('/auth/signup', {
+	username,
+	email,
+	password,
+});
 
 const login = async ({ username, password }) => {
 	try {
@@ -16,9 +15,9 @@ const login = async ({ username, password }) => {
 		if (response.data.accessToken) {
 			localStorage.setItem('user', JSON.stringify(response.data));
 		}
-		return response.data;
+		return response;
 	} catch (e) {
-		console.log(e);
+		return e.response;
 	}
 };
 

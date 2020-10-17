@@ -31,7 +31,10 @@ const App = () => {
 		}
 	}, []);
 
-	const logOut = () => AuthService.logout();
+	const logOut = () => {
+		AuthService.logout();
+		window.location.reload();
+	};
 
 	return (
 		<div>
@@ -82,7 +85,7 @@ const App = () => {
 								className='btn btn-outline-secondary'
 								type='button'
 								onClick={logOut}
-							/>
+							>Log out</button>
 						</>
 					) : (
 						<>

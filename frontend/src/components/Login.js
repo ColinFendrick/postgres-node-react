@@ -15,9 +15,15 @@ const Login = props => {
 		setLoading(true);
 
 		try {
-			await AuthService.login(data);
-			props.history.push('/tutorials');
-			window.location.reload();
+			const res = await AuthService.login(data);
+			if (res.status === 404) {
+				setMessage(res.data.message);
+				setLoading(false);
+				return;
+			} else {
+				props.history.push('/tutorials');
+				window.location.reload();
+			}
 		} catch (e) {
 			const resMessage = e.response.data.message.toString() || 'An error has occured';
 			setLoading(false);
