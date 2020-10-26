@@ -47,7 +47,8 @@ const App = () => {
 		<div>
 			<nav className = 'navbar navbar-expand navbar-dark bg-dark'>
 				<a href = '/tutorials' className = 'navbar-brand'>
-      Postgres Tutorial </a>
+					Postgres Tutorial
+				</a>
 				<div className = 'navbar-nav mr-auto'>
 					{currentUser ? (
 						<>
